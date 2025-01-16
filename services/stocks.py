@@ -1,6 +1,7 @@
 import requests
+import os
 
-API_KEY = ""
+API_KEY = os.getenv("API_KEY")
 
 def get_stock_data(ticker):
     BASE_URL = "https://www.alphavantage.co/query"

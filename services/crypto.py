@@ -1,6 +1,7 @@
 import requests
+import os
 
-API_KEY = ""
+API_KEY = os.getenv("")
 
 def get_crypto_data(symbol):
 

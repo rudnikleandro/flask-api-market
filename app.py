@@ -1,6 +1,10 @@
 from flask import Flask, request, jsonify
 from services.stocks import get_stock_data
 from services.crypto import get_crypto_data
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 
