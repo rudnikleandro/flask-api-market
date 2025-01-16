@@ -1,10 +1,12 @@
 import requests
 import os
 
-API_KEY = os.getenv("")
+API_KEY = os.getenv("COINMARKETCAP_API_KEY")
 
 def get_crypto_data(symbol):
-
+    """
+    Consome a API CoinMarketCap para obter cotações de criptomoedas.
+    """
     BASE_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
     headers = {
         "X-CMC_PRO_API_KEY": API_KEY,
@@ -22,7 +24,7 @@ def get_crypto_data(symbol):
                 "symbol": symbol,
                 "name": crypto_data["name"],
                 "price_usd": crypto_data["quote"]["USD"]["price"],
-                "percent_change_24h": crypto_data["quota"]["USD"]["percent_change_24h"]
+                "percent_change_24h": crypto_data["quote"]["USD"]["percent_change_24h"],
             }
         else:
             return {"error": "Criptomoeda não encontrada."}
